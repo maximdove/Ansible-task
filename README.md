@@ -7,7 +7,7 @@ This README provides an overview of the tasks and resources for my Cloud DevOps 
 
 ## Quick Links
 
-- For screenshots and description related to all three tasks: [Cloud_DevOps_Ansible_Maksym_Dovbeshko.md](Cloud_DevOps_Ansible_Maksym_Dovbeshko.md)
+- For screenshots and description related to all three tasks: [Cloud_DevOps_Ansible_Maksym_Dovbeshko.md](Cloud_DevOps_Ansible_Maksym_Dovbeshko/Cloud_DevOps_Ansible_Maksym_Dovbeshko.md)
 - Scripts for Task 2: [ansible-task2](ansible-task2)
 - Scripts for Task 3: [ansible-task3](ansible-task3)
 
