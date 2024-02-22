@@ -1,0 +1,16 @@
+---
+- name: Deploy common configuration
+  hosts: managed_nodes
+  become: yes
+  roles:
+    - common
+  vars:
+    required_packages:
+      - curl
+      - lsof
+      - mc
+      - nano
+      - tar
+      - unzip
+      - vim
+      - zip

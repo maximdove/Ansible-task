@@ -1,0 +1,4 @@
+---
+# handlers file for common
+- name: Reboot the system
+  ansible.builtin.reboot:

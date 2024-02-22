@@ -1,0 +1,44 @@
+- name: Set flag for collectd restart conditionally
+  ansible.builtin.set_fact:
+    restart_collectd: true
+  when: collectd_state != 'absent'
+
+- name: Install collectd
+  ansible.builtin.package:
+    name: collectd
+    state: latest
+  notify: restart collectd
+  when: restart_collectd is defined and restart_collectd
+
+- name: Configure write_prometheus plugin
+  ansible.builtin.template:
+    src: prometheus.conf.j2
+    dest: /etc/collectd/collectd.conf.d/prometheus.conf
+  notify: restart collectd
+  when: restart_collectd is defined and restart_collectd
+
+- name: Ensure collectd is enabled and started
+  ansible.builtin.service:
+    name: collectd
+    state: started
+    enabled: true
+  when: collectd_state != 'absent'
+
+- name: Stop and disable collectd service
+  ansible.builtin.service:
+    name: collectd
+    state: stopped
+    enabled: false
+  when: collectd_state == 'absent'
+
+- name: Remove collectd package
+  ansible.builtin.package:
+    name: collectd
+    state: absent
+  when: collectd_state == 'absent'
+
+- name: Remove collectd configuration
+  ansible.builtin.file:
+    path: /etc/collectd.d/
+    state: absent
+  when: collectd_state == 'absent'

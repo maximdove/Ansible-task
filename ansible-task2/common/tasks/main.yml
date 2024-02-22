@@ -1,0 +1,7 @@
+---
+# tasks file for common
+- name: Include package installation tasks
+  include_tasks: install_packages.yml
+
+- name: Include SELinux disable task
+  include_tasks: disable_selinux.yml

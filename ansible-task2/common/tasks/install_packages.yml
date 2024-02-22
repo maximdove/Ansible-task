@@ -1,0 +1,6 @@
+---
+- name: Install required packages
+  ansible.builtin.apt:
+    name: "{{ required_packages }}"
+    state: present
+  when: required_packages | length > 0

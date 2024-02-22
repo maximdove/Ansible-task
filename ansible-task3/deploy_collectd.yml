@@ -1,0 +1,7 @@
+---
+- hosts: managed_nodes
+  become: yes
+  roles:
+    - collectd
+  vars:
+    collectd_state: absent  # Or 'absent' to remove
